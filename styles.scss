@@ -1,0 +1,255 @@
+body{
+  display: flex;
+  gap: 20px;
+}
+
+.date-picker-container {
+  width: 286px;
+  height: 456px;
+  background-color: #FFFFFF;
+  margin: 0px;
+  padding: 2px;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  border: 1px dashed #ccc;
+  color: #626467;
+  
+  .date-picker-header {
+    .select-date-label {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4%;
+      color: #262728;
+      .optional-text {
+        font-weight: 400;
+        text-transform: capitalize;
+        letter-spacing: 0%;
+      }
+    }
+  }
+  
+  .date-picker-value{
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 24px;
+    font-size: 24px;
+    font-weight: 400;
+    color: #262728;
+  }
+
+  .navigation-container{
+    display: flex;
+    justify-content: space-between;
+
+    .month-navigation-expand-container{
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 0px;
+        margin: 0px;
+        color: #262728;
+        cursor: pointer;
+
+        .month-expand-button{
+            background-color: transparent;
+            border:none;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 700;
+            letter-spacing: 4%;
+            text-transform: uppercase;
+        }
+        .month-expand-icon{
+            margin-left: 13px;
+        }
+  }
+     .month-navigation-button{
+        width: 48px;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 4px;
+        
+        span {
+            cursor: pointer;
+        }
+    }
+  }
+
+  .day-names {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    
+    span {
+      font-size: 12px;
+      line-height: 16px;
+      align-self: center;
+      justify-self: center;
+      text-transform: uppercase;
+      color: #626467;
+      font-weight: 700;
+      width: 40px;
+      text-align: center;
+    }
+  }
+
+  .days-grid {
+    display: flex;
+    width: 282px;
+    height: 240px;
+    flex-wrap: wrap;
+    justify-content: center;
+    .day {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      font-size: 12px;
+      cursor: default;
+      font-weight: 500;
+      transition: background-color 0.2s ease-in-out;
+      color: #262728;  
+
+      &.disabled {
+        color: #C9CACC;
+      }
+
+      &.selected{
+        background-color: #00805A;
+        color: #FFFFFF;
+      }
+      &.highlighted {
+        background-color: #F3F3F3;
+        color: #262728;
+        font-weight: 600;
+      }
+
+      &:hover:not(.disabled):not(.selected){
+        box-sizing: border-box;
+         border: 1px solid #00805A;
+         color: #00805A;
+         font-weight: 600;
+      }
+      &:hover:not(.disabled){
+        cursor: pointer;
+      }
+    }
+  }
+
+  .months-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    row-gap:8px;
+    box-sizing: border-box;
+    width: 282px;
+    height: 280px;
+    padding-top: 16px;
+    text-align: center;
+
+    .month {
+        margin: 0;
+        padding: 0;
+        width:88px;
+        height: 40px;
+        font-size: 12px;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: flex;
+        align-items: center;   
+        justify-content: center; 
+
+        &.selected {
+            background-color: #00805A;
+            color: #FFFFFF;
+            font-weight: 600;
+        } 
+        &:hover:not(.selected){
+        box-sizing: border-box;
+         border: 1px solid #00805A;
+         color: #00805A;
+         font-weight: 600;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .years-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    width: 282px;
+    height: 280px;
+    padding-top: 16px;
+    text-align: center;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    &::-webkit-scrollbar {
+      display: none; 
+    }
+    
+    .year {
+        margin: 0;
+        padding: 0;
+        width:64px;
+        height: 40px;
+        font-size: 12px;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: flex;
+        align-items: center;   
+        justify-content: center; 
+        box-sizing: border-box;
+
+        &.selected {
+            background-color: #00805A;
+            color: #FFFFFF;
+            font-weight: 600;
+        } 
+        &:hover {
+          cursor: pointer;
+        }
+        &:hover:not(.selected){
+        box-sizing: border-box;
+         border: 1px solid #00805A;
+         color: #00805A;
+         font-weight: 600;
+      }
+    }
+  }
+  .action-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    margin-top: 40px;
+
+    .cancel-button,
+    .confirm-button {
+      background-color: transparent;
+      border: none;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      color: #626467;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover {
+        color:#00805A
+      }
+    }
+  }
+}
