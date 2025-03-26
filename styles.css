@@ -7,7 +7,9 @@ body {
 }
 
 .address-management-container {
+  box-sizing: border-box;
   width: 90%;
+  max-width: 1456px;
   margin: 0 auto;
 }
 .address-management-container .address-management-header {
@@ -41,14 +43,11 @@ body {
   border-bottom: 1px solid #807c77;
 }
 .address-management-container .address-management-tabs .tab {
-  box-sizing: border-box;
   font-size: 16px;
   color: #1d4a88;
   font-weight: 400;
   cursor: pointer;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 4px;
+  padding: 10px;
 }
 .address-management-container .address-management-tabs .tab.active {
   font-weight: 600;
@@ -56,13 +55,14 @@ body {
 }
 .address-management-container .address-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   padding: 20px;
 }
 .address-management-container .address-cards .address-card {
   position: relative;
   border: 1px solid #807c77;
-  width: 50%;
+  width: 46%;
   padding: 14px;
 }
 .address-management-container .address-cards .address-card .address-content {
@@ -91,7 +91,7 @@ body {
   background-color: transparent;
   border: none;
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #385846;
   cursor: pointer;
@@ -100,6 +100,41 @@ body {
 }
 .address-management-container .address-cards .address-card .address-actions button:hover {
   font-weight: 600;
+}
+.address-management-container .address-cards .address-card:not(.active) .default {
+  display: none;
+}
+.address-management-container .address-cards .address-card.active .default {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background-color: #c9c9c9;
+  color: #000;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 21px;
+}
+
+@media screen and (max-width: 1536px) {
+  .address-management-container {
+    max-width: 1200px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .address-management-container {
+    max-width: 704px;
+  }
+  .address-management-container .address-cards .address-card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .address-management-container {
+    max-width: 328px;
+  }
+  .address-management-container .address-cards .address-card {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
